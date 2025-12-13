@@ -1,20 +1,18 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
+import { useEndpoint } from "./endpoint"
 
 export function usePokemon(url) {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
+    const { endpoints } = useEndpoint();
+
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch("/api/get-all-endpoints")
-                if (!response.ok) { throw new Error("Failed to fetch endpoints!") }
-                const endpoints = await response.json()
-
                 const pokemonURL = await fetch(url || endpoints.pokemon)
                 const pokemonData = await pokemonURL.json()
-
 
                 const pokemonDataStructure = {
                     next: pokemonData.next,

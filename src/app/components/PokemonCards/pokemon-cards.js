@@ -1,6 +1,6 @@
-import { usePokemon } from "../hooks/pokemon-data"
+import { usePokemon } from "../../hooks/pokemon-lists"
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Button } from "../Button/button"
 
 export function PokemonCards() {
     const [currentURL, setCurrentURL] = useState("https://pokeapi.co/api/v2/pokemon?limit=20")
@@ -21,12 +21,13 @@ export function PokemonCards() {
     return (
         <div>
             {data.results.map((p, i) => (
-                <p key={i} className="grid-col-5">{p.name}</p>
+                <div key={i}>
+                    <p className="grid-col-5">{p.name}</p>
+                </div>
             ))}
-            <button onClick={previousPage} disabled={!data.next}>Sebelumnya</button>
-            <button onClick={nextPage} disabled={!data.next}>Selanjutnya</button>
+            <Button><a onClick={previousPage} disabled={!data.next}>Sebelumnya</a></Button>
+            <Button><a onClick={nextPage} disabled={!data.next}>Selanjutnya</a></Button>
         </div>
-
 
     )
 }
