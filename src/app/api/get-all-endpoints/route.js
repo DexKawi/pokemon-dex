@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET(params) {
-    const POKE_API = "https://pokeapi.co/api/v2/pokemon"
+    const POKE_API = "https://pokeapi.co/api/v2"
 
     if (!POKE_API) {
         throw new Error("PokeAPI initialized improperly!")
