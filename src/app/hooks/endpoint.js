@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 export function useEndpoint() {
-    const [endpoints, setEndpoints] = useState("/api/get-all-endpoints")
+    const [endpoints, setEndpoints] = useState(null)
 
     useEffect(() => {
         async function fetchEndpoints() {
