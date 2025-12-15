@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 
-export function usePokemonDetail(url) {
-    const [data, setData] = useState([])
+export function usePokemonDetail(name) {
+    const [data, setData] = useState(null)
 
     useEffect(() => {
         async function fetchPokemonDetail() {
-            const response = await fetch(url || "https://pokeapi.co/api/v2/pokemon/1/")
+            const response = await fetch(`"https://pokeapi.co/api/v2/pokemon/${name}` || "https://pokeapi.co/api/v2/pokemon/1/")
             const result = await response.json()
 
             const pokemonDataStructure = {
@@ -23,11 +23,9 @@ export function usePokemonDetail(url) {
             };
 
             setData(pokemonDataStructure)
-
-            console.log(response)
         }
         fetchPokemonDetail()
-    }, [url])
+    }, [id])
 
     return { data }
 }
