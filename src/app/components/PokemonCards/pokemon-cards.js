@@ -5,6 +5,7 @@ import Image from "next/image"
 import styles from "../PokemonCards/pokemon-cards.module.css"
 import { capitalize } from "@/app/utils/util"
 import Link from "next/link"
+import { getPokemonId } from "@/app/utils/util"
 
 export function PokemonCards() {
     const [currentURL, setCurrentURL] = useState("https://pokeapi.co/api/v2/pokemon?limit=20")
@@ -16,12 +17,6 @@ export function PokemonCards() {
             setCurrentURL(data.next)
         }
     }
-
-    function getPokemonId(url) {
-        const parts = url.split('/')
-        return parts[parts.length - 2]
-    }
-
 
     function previousPage() {
         if (data.previous) {
