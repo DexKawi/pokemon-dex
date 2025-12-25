@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    align-items: center;
+}
+
+.card {
+    padding: 1em;
+    position: relative;
+    background-color: rgb(32, 32, 32);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+.id {
+    font-size: 72;
+    position: absolute;
+    top: 25%;
+    right: 40px;
+    z-index: 0;
+    transform: translate(30px, 20px);
+    color: rgba(99, 99, 99, 0.08);
+}
