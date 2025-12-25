@@ -11,17 +11,22 @@ export function Card(props) {
     const shinyImageType = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${props.id}.png`
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.imageWrapper}>
-                <Image
-                    src={imageType ? shinyImageType : normalImageType}
-                    width={128}
-                    height={128}
-                    alt={`Picture of ${props.name}`}
-                    loading="eager" />
+        <div>
+            <div className={styles.wrapper}>
+                <div className={styles.imageWrapper}>
+                    <Image
+                        className={styles.image}
+                        src={imageType ? shinyImageType : normalImageType}
+                        width={256}
+                        height={256}
+                        alt={`Picture of ${props.name}`}
+                        loading="eager" />
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button onClick={() => { setImageType(false) }}>Normal</Button>
+                    <Button onClick={() => { setImageType(true) }}>Shiny</Button>
+                </div>
             </div>
-            <Button onClick={() => { setImageType(false) }}>Normal</Button>
-            <Button onClick={() => { setImageType(true) }}>Shiny</Button>
         </div>
     )
 }

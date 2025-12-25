@@ -1,0 +1,9 @@
+.badge {
+    display: flex;
+    padding: 0.5em;
+    gap: 0.5em;
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 20px;
+    background-color: rgb(41, 41, 41);
+    font-weight: 900;
+}

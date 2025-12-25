@@ -36,7 +36,7 @@ export function PokemonCards() {
                         return (
                             <Link key={id} href={`/pokemon/${pokemon.name}`}>
                                 <div key={id} className={styles.card} >
-                                    <p>{capitalize(pokemon.name)}</p>
+                                    <p className={styles.pokemonName}>{capitalize(pokemon.name)}</p>
                                     <Image
                                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                                         width={96}

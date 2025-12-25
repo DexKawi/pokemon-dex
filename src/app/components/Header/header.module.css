@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    position: fixed;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 120px;
+    gap: 50px;
+    z-index: 5;
+    background-color: black;
+}
