@@ -1,7 +1,7 @@
 "use client";
 
-import styles from "./page.module.css";
-import { PokemonCards } from "./components/PokemonCards/pokemon-cards";
+import styles from "../page.module.css";
+import { PokemonCards } from "../components/PokemonCards/pokemon-cards";
 
 export default function Home() {
 

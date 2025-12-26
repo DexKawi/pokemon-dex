@@ -9,7 +9,16 @@ const nextConfig = {
         pathname: '/PokeAPI/sprites/master/sprites/pokemon/**',
       },
     ],
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/pokemon',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
