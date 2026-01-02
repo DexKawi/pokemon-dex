@@ -25,6 +25,12 @@ export function pokemonData(result) {
 }
 
 export function getPokemonId(url) {
-    const parts = url.split('/')
+    const parts = url.split("/")
     return parts[parts.length - 2]
+}
+
+export function formatPokemonGen(str) {
+    const string = str.toString()
+    const parts = string.split("-")
+    return parts.join(" ")
 }

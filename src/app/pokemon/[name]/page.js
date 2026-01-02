@@ -3,27 +3,28 @@
 import globalStyles from "@/app/page.module.css";
 import styles from "../[name]/pokemon-detail.module.css"
 import { useEffect, useState } from "react";
-import { allCaps, pokemonData } from "@/app/utils/util";
+import { allCaps, formatPokemonGen, pokemonData } from "@/app/utils/util";
 import { useParams } from "next/navigation";
 import { Card } from "@/app/components/Card/card";
 import { capitalize } from "@/app/utils/util";
 import { Badge } from "@/app/components/Badges/badge";
 import Link from "next/link";
+import { usePokemonSpecies } from "@/app/hooks/pokemon-species";
+import { Header } from "@/app/components/Header/header";
 
 export default function PokemonDetail() {
     const [pokemon, setPokemon] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+
     const params = useParams()
+    const { data: specData } = usePokemonSpecies(params.name)
 
     useEffect(() => {
         async function fetchData() {
             try {
                 setLoading(true)
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
-
-                if (!response.ok) throw new Error('Pokemon not found')
-
                 const result = await response.json()
                 const data = pokemonData(result);
                 setPokemon(data);
@@ -46,7 +47,8 @@ export default function PokemonDetail() {
     return (
         <div className={globalStyles.page}>
             <main className={globalStyles.main}>
-                <Link href={`/`}>Home</Link>
+                <Header />
+                <Link href={`/pokemon`}>Home</Link>
                 <div className={styles.firstSection}>
                     <div className={styles.leftSectionWrapper}>
                         <h1 className={styles.pokemonName}>{capitalize(pokemon.name)}</h1>
@@ -66,7 +68,7 @@ export default function PokemonDetail() {
                                     </tr>
                                     <tr>
                                         <td>Introduced</td>
-                                        <td>{pokemon.generation}</td>
+                                        <td>{formatPokemonGen(capitalize(pokemon.generation[0]))}</td>
                                     </tr>
                                     <tr>
                                         <td>Height</td>
@@ -74,7 +76,11 @@ export default function PokemonDetail() {
                                     </tr>
                                     <tr>
                                         <td>Species</td>
-                                        <td>{pokemon.species}</td>
+                                        <td>{capitalize(pokemon.species)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td>{specData}</td>
                                     </tr>
                                 </tbody>
                             </table>
