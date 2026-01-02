@@ -1,8 +1,8 @@
 # Pokemon-dex
-
+[![pokedex-kwai.jpg](https://i.postimg.cc/RZ9Xksmt/pokedex-kwai.jpg)](https://postimg.cc/vcqr9vc8)
 > A simple Next.js application to view Pokemon details using the PokeAPI to improve my understanding about ReactJS and NextJS essentials.
 
-## Features
+## :Features
 
 - View detailed Pokemon information
 - Display Pokemon species data
