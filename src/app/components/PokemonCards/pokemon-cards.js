@@ -52,8 +52,8 @@ export function PokemonCards() {
                 </div>
 
                 <div className={styles.button}>
-                    <Button onClick={previousPage} disabled={!data.previous}>Sebelumnya</Button>
-                    <Button onClick={nextPage} disabled={!data.next}>Selanjutnya</Button>
+                    <Button onClick={previousPage} disabled={!data.previous}>Previous</Button>
+                    <Button onClick={nextPage} disabled={!data.next}>Next</Button>
                 </div>
             </div>
         </div>
